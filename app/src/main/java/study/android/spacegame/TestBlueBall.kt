@@ -8,10 +8,10 @@ import study.android.spacegame.framework.Renderable
 import study.android.spacegame.framework.Updatable
 
 
-class TestBlueBall(game: GameView) : Updatable, Renderable {
+class TestBlueBall(gameView: GameView) : Updatable, Renderable {
     // генерируем случайные координаты в пределах окна
-    var x: Float = Math.random().toFloat() * game.width
-    var y: Float = Math.random().toFloat() * game.height
+    var x: Float = Math.random().toFloat() * gameView.width
+    var y: Float = Math.random().toFloat() * gameView.height
     var paint: Paint = Paint()
     override fun render(canvas: Canvas) {
         canvas.drawCircle(x, y, 3f, paint)

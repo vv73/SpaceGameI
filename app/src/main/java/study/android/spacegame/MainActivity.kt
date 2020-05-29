@@ -7,20 +7,20 @@ import study.android.spacegame.framework.Updatable
 
 
 class MainActivity : AppCompatActivity(), Updatable {
-    lateinit var game: GameView
+    lateinit var gameView: GameView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // Cоздаем GameView
-        game = GameView(this, null)
+        gameView = GameView(this, null)
         // Устанавливаем наш GameView на активность
-        setContentView(game)
+        setContentView(gameView)
     }
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         //добавляем себя в игру
-        game.addObject(this)
+        gameView.addObject(this)
         for (i in 0..49) {
-            game.addObject(TestBlueBall(game))
+            gameView.addObject(TestBlueBall(gameView))
         }
     }
 
@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity(), Updatable {
     override fun update(deltaTime: Float) {
         // Каждую секунду добавляем объект
         if (timeElapsed > 1) {
-            game.addObject(TestRedSquare(game))
+            gameView.addObject(TestRedSquare(gameView))
             // обнуляем время ожидания
             timeElapsed = 0f
         } else {
